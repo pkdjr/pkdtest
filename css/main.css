@@ -1486,7 +1486,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     height: auto;
 
     /* --- DEFAULT (DESKTOP) SIZE --- */
-    width: 20px; /* A standard, smaller size for larger screens */
+    width: 250px; /* A standard, smaller size for larger screens */
 
     -webkit-transition: width 0.3s ease-in-out;
     transition: width 0.3s ease-in-out;
