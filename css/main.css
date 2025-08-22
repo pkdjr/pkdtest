@@ -1459,8 +1459,10 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 
 /* -------------------------------------------------------------------
- * ## header logo
+ * ## Header Logo (Updated for Mobile)
  * ------------------------------------------------------------------- */
+
+/* Container for positioning the logo */
 .header-logo {
     display: inline-block;
     position: absolute;
@@ -1472,28 +1474,39 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     z-index: 501;
-
-    /* Responsive scaling */
-    width: 80%; /* Adjust the width percentage as needed */
-    max-width: 250px; /* Set a maximum size for larger screens */
-    -webkit-transition: width 0.3s ease, transform 0.3s ease;
-    transition: width 0.3s ease, transform 0.3s ease;
 }
 
-}
-
+/* The logo link itself handles all sizing and transitions */
 .header-logo a {
     display: block;
-    margin: 9px 0 0 0;
+    margin: 0;
     padding: 0;
     outline: 0;
     border: none;
-    width: 80px;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+    height: auto;
+
+    /* --- DEFAULT (DESKTOP) SIZE --- */
+    width: 20px; /* A standard, smaller size for larger screens */
+
+    -webkit-transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+}
+
+/* It's good practice to ensure any image inside is also responsive */
+.header-logo a img {
+    display: block;
+    width: 100%;
 }
 
 
+/* --- MEDIA QUERY FOR SMALLER DEVICES --- */
+/* This rule applies only to screens 768px wide or less */
+@media (max-width: 768px) {
+    .header-logo a {
+        /* On smaller screens, make the logo bigger */
+        width: 220px;
+    }
+}
 /* ------------------------------------------------------------------- 
  * ## main navigation 
  * ------------------------------------------------------------------- */
@@ -1516,6 +1529,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     transition: all 0.5s ease;
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; /* This is the added line */
     -webkit-transform: translateX(100%);
     -ms-transform: translateX(100%);
     transform: translateX(100%);
@@ -2829,9 +2843,7 @@ html.no-csstransitions .home-content__main {
     transition: all 0.3s ease-in-out;
 }
 
-.item-folio__text {
-    /* ... your existing text styling ... */
-}
+
   
   .item-folio__title {
     font-family: "montserrat-semibold", sans-serif;

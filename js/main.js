@@ -9,7 +9,7 @@
     
     var cfg = {
         scrollDuration : 800, // smoothscroll duration
-        mailChimpURL   : 'https://facebook.us8.list-manage.com/subscribe/post?u=cdb7b577e41181934ed6a6a44&amp;id=e6957d85dc'   // mailchimp url
+        mailChimpURL   : 'https://facebook.us8.list-manage.com/subscribe/post?u=cdb7b577e41181934ed6a6a44&id=e6957d85dc'   // mailchimp url
     },
 
     $WIN = $(window);
@@ -45,19 +45,29 @@
     };
 
 
-   /* Menu on Scrolldown
+   /* Scroll-based Functions
     * ------------------------------------------------------ */
-    var clMenuOnScrolldown = function() {
+    var clScrollBased = function() {
         
-        var menuTrigger = $('.header-menu-toggle');
+        var menuTrigger = $('.header-menu-toggle'),
+            goTopButton = $(".go-top"),
+            pxShow = 500;
 
         $WIN.on('scroll', function() {
-
+            
+            // Menu on Scrolldown
             if ($WIN.scrollTop() > 150) {
                 menuTrigger.addClass('opaque');
             }
             else {
                 menuTrigger.removeClass('opaque');
+            }
+
+            // Back to Top Button
+            if ($(window).scrollTop() >= pxShow) {
+                goTopButton.fadeIn(400);
+            } else {
+                goTopButton.fadeOut(400);
             }
 
         });
@@ -77,20 +87,18 @@
         // open-close menu by clicking on the menu icon
         menuTrigger.on('click', function(e){
             e.preventDefault();
-            // menuTrigger.toggleClass('is-clicked');
             siteBody.toggleClass('menu-is-open');
         });
 
         // close menu by clicking the close button
         closeButton.on('click', function(e){
             e.preventDefault();
-            menuTrigger.trigger('click');	
+            menuTrigger.trigger('click');   
         });
 
         // close menu clicking outside the menu itself
         siteBody.on('click', function(e){
             if( !$(e.target).is('.header-nav, .header-nav__content, .header-menu-toggle, .header-menu-toggle span') ) {
-                // menuTrigger.removeClass('is-clicked');
                 siteBody.removeClass('menu-is-open');
             }
         });
@@ -118,7 +126,7 @@
                     $size = $thumbLink.data('size').split('x'),
                     $width  = $size[0],
                     $height = $size[1];
-         
+        
                 var item = {
                     src  : $href,
                     w    : $width,
@@ -215,7 +223,6 @@
             infinite: true,
             slidesToShow: 6,
             slidesToScroll: 2,
-            //autoplay: true,
             pauseOnFocus: false,
             autoplaySpeed: 1000,
             responsive: [
@@ -245,7 +252,6 @@
                         slidesToScroll: 2
                     }
                 }
-
             ]
         });
 
@@ -323,42 +329,6 @@
     };
 
 
-   /* Contact Form
-    * ------------------------------------------------------ */
-   var clContactForm = function () {
-    $('#contactForm').validate({
-        submitHandler: function (form) {
-            var sLoader = $('.submit-loader');
-
-            $.ajax({
-                type: "POST",
-                url: "https://formsubmit.co/pkdfibres@gmail.com", // Ensure the path is correct
-                data: $(form).serialize(),
-                beforeSend: function () {
-                    sLoader.slideDown("slow");
-                },
-                success: function (msg) {
-                    if (msg.trim() === 'OK') {
-                        sLoader.slideUp("slow");
-                        $('.message-warning').fadeOut();
-                        $('#contactForm').fadeOut();
-                        $('.message-success').fadeIn();
-                    } else {
-                        sLoader.slideUp("slow");
-                        $('.message-warning').html(msg);
-                        $('.message-warning').slideDown("slow");
-                    }
-                },
-                error: function () {
-                    sLoader.slideUp("slow");
-                    $('.message-warning').html("Something went wrong. Please try again.");
-                    $('.message-warning').slideDown("slow");
-                },
-            });
-        },
-    });
-};
-
    /* Animate On Scroll
     * ------------------------------------------------------ */
     var clAOS = function() {
@@ -385,16 +355,6 @@
         });
 
         // Mailchimp translation
-        //
-        //  Defaults:
-        //	 'submit': 'Submitting...',
-        //  0: 'We have sent you a confirmation email',
-        //  1: 'Please enter a value',
-        //  2: 'An email address must contain a single @',
-        //  3: 'The domain portion of the email address is invalid (the portion after the @: )',
-        //  4: 'The username portion of the email address is invalid (the portion before the @: )',
-        //  5: 'This email address looks fake or invalid. Please enter a real email address'
-
         $.ajaxChimp.translations.es = {
             'submit': 'Submitting...',
             0: '<i class="fa fa-check"></i> We have sent you a confirmation email',
@@ -404,27 +364,18 @@
             4: '<i class="fa fa-warning"></i> E-mail address is not valid.',
             5: '<i class="fa fa-warning"></i> E-mail address is not valid.'
         } 
-
     };
-
 
    /* Back to Top
     * ------------------------------------------------------ */
     var clBackToTop = function() {
         
-        var pxShow  = 500,         // height on which the button will show
-        fadeInTime  = 400,         // how slow/fast you want the button to show
-        fadeOutTime = 400,         // how slow/fast you want the button to hide
-        scrollSpeed = 300,         // how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
-        goTopButton = $(".go-top")
+        var goTopButton = $(".go-top")
         
         // Show or hide the sticky footer button
-        $(window).on('scroll', function() {
-            if ($(window).scrollTop() >= pxShow) {
-                goTopButton.fadeIn(fadeInTime);
-            } else {
-                goTopButton.fadeOut(fadeOutTime);
-            }
+        goTopButton.on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, cfg.scrollDuration);
         });
     };
 
@@ -434,7 +385,7 @@
     (function ssInit() {
         
         clPreloader();
-        clMenuOnScrolldown();
+        clScrollBased(); // Combines MenuOnScrolldown and old BackToTop logic
         clOffCanvas();
         clPhotoswipe();
         clStatCount();
@@ -443,12 +394,11 @@
         clSmoothScroll();
         clPlaceholder();
         clAlertBoxes();
-        clContactForm();
+        // clContactForm(); // ### REMOVED: This function is broken and unnecessary.
         clAOS();
         clAjaxChimp();
         clBackToTop();
 
     })();
-        
         
 })(jQuery);

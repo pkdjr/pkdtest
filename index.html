@@ -9,19 +9,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <link rel="preload" href="css/base.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/base.css"></noscript>
-    <link rel="preload" href="css/vendor.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/vendor.css"></noscript>
-    <link rel="preload" href="css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
+    <link rel="preload" href="images/hero-bg.webp" as="image">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/dfba359e4b3f6e0ac8f2a44ab2f87878?family=TorontoSubway-Bold" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://db.onlinewebfonts.com/c/dfba359e4b3f6e0ac8f2a44ab2f87878?family=TorontoSubway-Bold"></noscript>
+    <link rel="preconnect" href="https://db.onlinewebfonts.com" crossorigin>
+    
+    <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/dfba359e4b3f6e0ac8f2a44ab2f87878?family=TorontoSubway-Bold&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://db.onlinewebfonts.com/c/dfba359e4b3f6e0ac8f2a44ab2f87878?family=TorontoSubway-Bold&display=swap"></noscript>
 </head>
 
 <body id="top">
+    <div id="preloader">
+        <div id="loader">
+            <div class="line-scale-pulse-out">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
     <header class="s-header">
         <div class="header-logo">
             <a class="site-logo" href="index.html">
@@ -75,12 +88,11 @@
         </div>
         <ul class="home-social">
             <li>
-    <a href="https://www.linkedin.com/company/peekaydfibres" aria-label="LinkedIn">
-        <i class="fa fa-linkedin" aria-hidden="true"></i>
-        <span>LinkedIn</span>
-    </a>
-</li>
-
+                <a href="https://www.linkedin.com/company/peekaydfibres" aria-label="LinkedIn">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </li>
             <li><a href="https://www.facebook.com/profile.php?id=61571210408888" aria-label="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a></li>
             <li><a href="https://www.instagram.com/peekaydfibres/" aria-label="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a></li>
         </ul>
@@ -163,19 +175,15 @@
                 <h3 class="subhead">Our Collection</h3>
                 <h1 class="display-2 display-2--light">Experience the perfect blend of sustainability and craftsmanship</h1>
             </div>
-        </div> <!-- end section-header -->
-    </div> <!-- end intro-wrap -->
-    <div class="row works-content">
+        </div> </div> <div class="row works-content">
         <div class="col-full masonry-wrap">
             <div class="masonry" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
     
-                <!-- Doormats Item -->
                 <div class="masonry__brick">
                     <div class="item-folio">
                         <div class="item-folio__thumb" onclick="window.location.href='products.html#doormat'">
                             <a href="products.html" class="thumb-link" title="Doormats" data-size="1050x700">
-                                <img src="images/doormats.jpg" loading="lazy"
-                                     srcset="images/Green Alternatives.webp 1x, images/portfolio/Green Alternatives@2x.webp 2x" alt="">
+                                <img src="images/doormats.webp" loading="lazy" alt="A collection of stylish coir doormats.">
                             </a>
                         </div>
                         <div class="item-folio__text">
@@ -185,17 +193,14 @@
                         <a class="item-folio__project-link" title="Project link" onclick="window.location.href='products.html'">
                             <i class="icon-grid"></i>
                         </a>
-                        <div class="item-folio__caption"></div>
                     </div>
                 </div>
     
-                <!-- Rugs Item -->
                 <div class="masonry__brick">
                     <div class="item-folio">
                         <div class="item-folio__thumb" onclick="window.location.href='products.html#rugs'">
                             <a href="products.html" class="thumb-link" title="Rugs" data-size="1050x700">
-                                <img src="images/rugs.webp" loading="lazy"
-                                     srcset="images/Green Alternatives.jpg 1x, images/portfolio/Green Alternatives@2x.jpg 2x" alt="">
+                                <img src="images/rugs.webp" loading="lazy" alt="An assortment of eco-friendly rugs.">
                             </a>
                         </div>
                         <div class="item-folio__text">
@@ -205,17 +210,14 @@
                         <a class="item-folio__project-link" title="Project link" onclick="window.location.href='products.html'">
                             <i class="icon-grid"></i>
                         </a>
-                        <div class="item-folio__caption"></div>
                     </div>
                 </div>
     
-                <!-- Broadloom Item -->
                 <div class="masonry__brick">
                     <div class="item-folio">
                         <div class="item-folio__thumb" onclick="window.location.href='products.html#broadloom'">
                             <a href="products.html" class="thumb-link" title="Broadloom" data-size="1050x700">
-                                <img src="images/broadloom.webp" loading="lazy"
-                                     srcset="images/Green Alternatives.jpg 1x, images/portfolio/Green Alternatives@2x.jpg 2x" alt="">
+                                <img src="images/broadloom.webp" loading="lazy" alt="High-quality broadloom carpeting.">
                             </a>
                         </div>
                         <div class="item-folio__text">
@@ -225,17 +227,14 @@
                         <a class="item-folio__project-link" title="Project link" onclick="window.location.href='products.html'">
                             <i class="icon-grid"></i>
                         </a>
-                        <div class="item-folio__caption"></div>
                     </div>
                 </div>
     
-                <!-- Green Solutions Item -->
                 <div class="masonry__brick">
                     <div class="item-folio">
                         <div class="item-folio__thumb" onclick="window.location.href='products.html#Green Solutions'">
                             <a href="products.html" class="thumb-link" title="Green Solutions" data-size="1050x700">
-                                <img src="images/Green Alternatives.webp" loading="lazy"
-                                     srcset="images/Green Alternatives.jpg 1x, images/portfolio/Green Alternatives@2x.jpg 2x" alt="">
+                                <img src="images/Green Alternatives.webp" loading="lazy" alt="Sustainable green solutions for gardening.">
                             </a>
                         </div>
                         <div class="item-folio__text">
@@ -245,20 +244,11 @@
                         <a class="item-folio__project-link" title="Project link" onclick="window.location.href='products.html'">
                             <i class="icon-grid"></i>
                         </a>
-                        <div class="item-folio__caption"></div>
                     </div>
                 </div>
     
-            </div> <!-- end masonry -->
-        </div> <!-- end col-full -->
-    </div>  
-    </div>
-    </div> <!-- end works-content -->
-
-</section> <!-- end s-works -->
-
-
-    <section id="contact" class="s-contact">
+            </div> </div> </div>
+</section> <section id="contact" class="s-contact">
         <div class="overlay"></div>
         <div class="contact__line"></div>
         <div class="row section-header" data-aos="fade-up">
@@ -336,11 +326,10 @@
                     </div>
                     <ul class="contact-social">
                         <li>
-    <a href="https://www.linkedin.com/company/peekaydfibres" aria-label="LinkedIn">
-        <i class="fa fa-linkedin" aria-hidden="true"></i>
-    </a>
-</li>
-
+                            <a href="https://www.linkedin.com/company/peekaydfibres" aria-label="LinkedIn">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                        </li>
                         <li><a href="https://www.facebook.com/profile.php?id=61571210408888" aria-label="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="https://www.instagram.com/peekaydfibres/" aria-label="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                     </ul>
@@ -369,24 +358,12 @@
         </div>
     </footer>
 
-    <div id="preloader">
-        <div id="loader">
-            <div class="line-scale-pulse-out">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    </div>
-
     <script src="js/modernizr.js" defer></script>
     <script src="js/pace.min.js" defer></script>
     <script src="js/jquery-3.2.1.min.js" defer></script>
     <script src="js/plugins.js" defer></script>
     <script src="js/main.js" defer></script>
     <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"languages":["en","fr","es","ru","it","de"],"wrapper_selector":".gtranslate_wrapper","alt_flags":{"en":"usa"}}</script>
-    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" async defer></script>
 </body>
 </html>

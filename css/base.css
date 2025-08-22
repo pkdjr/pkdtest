@@ -193,7 +193,8 @@ button,
 html [type="button"],
 [type="reset"],
 [type="submit"] {
-    -webkit-appearance: button;
+    -webkit-appearance: button; /* For older WebKit browsers */
+    appearance: button;         /* The standard property for modern browsers */
 }
 
 button::-moz-focus-inner,
@@ -247,7 +248,8 @@ textarea {
 }
 
 [type="search"] {
-    -webkit-appearance: textfield;
+    -webkit-appearance: textfield; /* For older WebKit browsers */
+    appearance: textfield;         /* The standard property for modern browsers */
     outline-offset: -2px;
 }
 
